@@ -47,7 +47,7 @@ void catch_signal(int sign)
     switch (sign)
     {
     case SIGINT:
-        printf("ctrl + C 被执行了!\n");
+        printf("ctrl + C 被执行了!\n");    //经试验ctrl + C跳不出来了
         //exit(0);
         break;
     }
