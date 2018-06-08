@@ -64,7 +64,7 @@ int main(int arg, char *args[])
         //sleep()
     }
     //恢复信号
-    signal(SIGINT, SIG_DFL);
+    signal(SIGINT, SIG_DFL);     //回复后可以中断了
     while (1)
     {
         pause();
