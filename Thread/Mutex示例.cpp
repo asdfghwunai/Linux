@@ -6,7 +6,7 @@
 #include <mutex>
 
 std::map<std::string, std::string> g_pages;
-std::mutex g_pages_mutex;
+std::mutex g_pages_mutex;   //保护全局变量用
 
 void save_page(const std::string &url)
 {
