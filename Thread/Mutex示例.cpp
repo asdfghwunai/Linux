@@ -23,7 +23,7 @@ int main()
 {
     std::thread t1(save_page, "http://foo");
     std::thread t2(save_page, "http://bar");
-    t1.join();
+    t1.join();   //连接线程1，线程执行完才轮到主线程然后又执行线程2，是不是不是顺序执行啊，就是一下子启动俩子线程
     t2.join();
 
     g_pages_mutex.lock(); // not necessary as the threads are joined, but good style
