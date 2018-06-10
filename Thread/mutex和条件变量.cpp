@@ -1,5 +1,20 @@
 /*
 每次执行结果还不一样，创建完线程并不能约束谁先执行
+注意wait可以分两半，每一半都是原子的，比如unlock到sleep是原子的,cond ok到lock也是原子的
+1 unlock mutex
+2 sleep & wait for cond
+3 cond ok & return
+4 lock mutex
+
+enter main      unlock
+enter thread2   lock
+this is thread2, g_Flag: 0, thread id is 2886878976
+this is thread2, g_Flag: 2, thread id is 2886878976
+leave thread2   unlock
+enter thread1    lock
+this is thread1, g_Flag: 2, thread id is 2878486272
+this is thread1, g_Flag: 1, thread id is 2878486272   unlock
+leave main   lock
 */
 
 /*
