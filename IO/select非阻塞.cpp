@@ -1,3 +1,4 @@
+//咋说呢，你select设成非阻塞就得来个死循环轮询
 #include<sys/time.h>
 #include<sys/types.h>
 #include<unistd.h>
