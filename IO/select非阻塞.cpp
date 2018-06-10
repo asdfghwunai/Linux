@@ -1,4 +1,4 @@
-//咋说呢，你select设成非阻塞就得来个死循环轮询
+//咋说呢，你select设成非阻塞就得来个死循环轮询，select相比一般的阻塞就是可以多监控一些文件描述符，这才叫IO复用
 #include<sys/time.h>
 #include<sys/types.h>
 #include<unistd.h>
