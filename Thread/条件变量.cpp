@@ -22,7 +22,7 @@ pthread_cond_t count_nonzero;
 unsigned count;
 decrement_count () {
     pthread_mutex_lock (&count_lock);
-    while(count==0)                         //条件不成立就执行里面然后等信号,信号来了还会阻塞在互斥锁,然后等第二个线程释放锁,然后跳出循环
+    while(count==0)                         //本线程条件成立就执行里面然后等条件不成立的信号,信号来了还会阻塞在互斥锁,然后等第二个线程释放锁,然后跳出循环
         pthread_cond_wait( &count_nonzero, &count_lock);
     count=count -1;
     pthread_mutex_unlock (&count_lock);
