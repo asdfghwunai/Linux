@@ -55,8 +55,8 @@ void* thread2(void*);
     if(rc1 != 0)
         printf("%s: %d\n",__func__, strerror(rc1));
 
-    pthread_cond_wait(&cond, &mutex);  //在里面会先解锁 等待 再锁，三个都是原子操作
-    printf("leave main\n");
+    pthread_cond_wait(&cond, &mutex);  //在里面会先解锁 等待 再锁，三个都是原子操作   说实话main函数在等互斥锁解锁,不是等条件啊,是不是错了?
+    printf("leave main\n");                                             //其实这个等条件就是先阻塞,然后等signal信号,是等信号,不是等条件
     exit(0);
 }
 /*
