@@ -6,7 +6,7 @@
 3 cond ok & return
 4 lock mutex
 
-enter main      unlock
+enter main      unlock  wait解锁
 enter thread2   lock
 this is thread2, g_Flag: 0, thread id is 2886878976
 this is thread2, g_Flag: 2, thread id is 2886878976
@@ -14,7 +14,7 @@ leave thread2   unlock
 enter thread1    lock
 this is thread1, g_Flag: 2, thread id is 2878486272
 this is thread1, g_Flag: 1, thread id is 2878486272   unlock
-leave main   lock
+leave main   lock  wait加锁  最后不还是锁了吗
 */
 
 /*
